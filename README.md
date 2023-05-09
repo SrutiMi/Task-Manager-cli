@@ -18,3 +18,7 @@ You can add, delete,list the tasks using the terminal
   ->task_manager status -n <task name> -s <status>
 ## To show the status of the task
   ->task_manager status -n <task_manager>
+## To remove a task 
+ -> task_manager remove -n <task name>
+## To remove all the tasks
+ ->task_manager deleteall
