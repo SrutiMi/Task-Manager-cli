@@ -56,6 +56,7 @@ program
    .command('status')
    .description('Shows the status ofthe tasks')
    .option('-n, --name <name>', 'Task name')
+  .option('-s, --status <status>', 'New status of the task')
    .action((options)=>{
     if (!fs.existsSync(DATA_FILE)) {
         console.log('No tasks found');
@@ -69,8 +70,15 @@ program
         return;
       }
   
-      console.log(`Status of task "${options.name}": ${task.status || 'Not started'}`);
+      if (options.status) {
+        task.status = options.status;
+        fs.writeFileSync(DATA_FILE, JSON.stringify(tasks));
+        console.log(`Status of task "${options.name}" updated to "${options.status}"`);
+      } else {
+        console.log(`Status of task "${options.name}": ${task.status || 'Not started'}`);
+      }
    });
+
 
    
 program
