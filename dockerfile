@@ -3,7 +3,7 @@ WORKDIR /app
 
 #Copy the package.json and package-lock.json file to the container
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm install
 
